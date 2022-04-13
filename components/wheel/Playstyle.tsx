@@ -25,7 +25,7 @@ setMustSpin(true);
 export const Playstyle = () => {
 
 return (
-    <div>
+    <>
       <Wheel
           backgroundColors={["#8C4B12", "#054956"]}
           textColors={["#fff", "#fff"]}
@@ -39,7 +39,7 @@ return (
           }}
         />
             <Button onClick={handleSpinClick}> Playstyle </Button>
-    </div>
+    </>
     
 )
 }

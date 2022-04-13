@@ -5,6 +5,7 @@ import { Wheel } from "react-custom-roulette";
 import { Button } from "@nextui-org/react";
 
 interface Props {
+  
   champions: SmallChampion[];
 }
 
@@ -31,7 +32,7 @@ const Champion: NextPage<Props> = ({ champions }) => {
   };
 
   return (
-    <div>
+    <>
       <Wheel
         backgroundColors={["#8C4B12", "#054956"]}
         textColors={["#fff", "#fff"]}
@@ -46,7 +47,7 @@ const Champion: NextPage<Props> = ({ champions }) => {
         }}
       />
       <Button onClick={handleSpinClick}> Champion </Button>
-    </div>
+    </>
   );
 };
 

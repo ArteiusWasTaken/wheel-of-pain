@@ -8,18 +8,20 @@ const data = [
     { option: "Mid" },
     { option: "Bot" },
   ];
+  
+  const [mustSpin, setMustSpin] = useState(false);
+  const [prizeNumber, setPrizeNumber] = useState(0);
+
+  const handleSpinClick = () => {
+  const newPrizeNumber = Math.floor(Math.random() * data.length);
+  setPrizeNumber(newPrizeNumber);
+  setMustSpin(true);
+};
 
 export const Role = () => {
-    const [mustSpin, setMustSpin] = useState(false);
-    const [prizeNumber, setPrizeNumber] = useState(0);
-
-    const handleSpinClick = () => {
-    const newPrizeNumber = Math.floor(Math.random() * data.length);
-    setPrizeNumber(newPrizeNumber);
-    setMustSpin(true);
-  };
+    
   return (
-    <div>
+    <>
         <Wheel
             backgroundColors={["#8C4B12", "#054956"]}
             textColors={["#fff", "#fff"]}
@@ -33,7 +35,7 @@ export const Role = () => {
             }}
           />
           <Button onClick={handleSpinClick}> Role </Button>
-      </div>
+      </>
       
   )
 }

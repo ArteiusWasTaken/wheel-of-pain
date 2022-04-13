@@ -6,6 +6,7 @@ import { ChampionList, SmallChampion } from '../interfaces';
 import Champion from '../components/wheel/Champion';
 import { Grid } from '@nextui-org/react';
 import { Playstyle, Role } from '../components/wheel';
+import { Game } from '../components/game/Game';
 
 interface Props {
   champions: SmallChampion[];
@@ -15,11 +16,9 @@ const Home: NextPage<Props> = ({champions}) => {
   return (
     
     <Layout title="Listado de pokémon">
-      <Grid.Container gap ={3} alignItems='center' justify='center'>
-      <Champion champions={champions}/>
-      <Role />
-      <Playstyle /> 
-     </Grid.Container>
+      
+      <Game champions={champions} />
+
     </Layout>
   )
 }
