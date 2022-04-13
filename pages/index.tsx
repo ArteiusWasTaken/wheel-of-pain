@@ -48,20 +48,29 @@ const Home: NextPage<Props> = ({ champions }) => {
             <SimpleCard img={champImg} text={champ} />
             <SimpleCard img={roleImg} text={role} />
             <SimpleCard img={playStyleImg} text={playStyle} />
+            <Button
+              ghost
+              shadow
+              color="gradient"
+              size="lg"
+              onClick={handleSpinClick}
+            >
+              Roll again!
+            </Button>
           </>
         ) : (
-          <h1>Aqui no hay nada</h1>
+          <>
+            <Button
+              ghost
+              shadow
+              color="gradient"
+              size="lg"
+              onClick={handleSpinClick}
+            >
+              Roll!
+            </Button>
+          </>
         )}
-
-        <Button
-          ghost
-          shadow
-          color="gradient"
-          size="lg"
-          onClick={handleSpinClick}
-        >
-          Champion
-        </Button>
       </Grid.Container>
     </Layout>
   );

@@ -32,8 +32,8 @@ export const Layout: FC<Props> = ({ children, title }) => {
 
       <main
         style={{
-          padding: "4rem 0",
-          minHeight: "100vh",
+          padding: "1rem 0",
+          minHeight: "80vh",
           flex: "1",
           display: "flex",
           justifyContent: "center",
