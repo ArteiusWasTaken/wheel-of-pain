@@ -40,7 +40,8 @@ export const NavBar = () => {
             heel of Pain
           </Text>
         </Link>
-      </NextLink>
+      </NextLink>{" "}
+      by Arteius - Credits to: TTV/anklespankin
     </div>
   );
 };
