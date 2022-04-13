@@ -19,20 +19,21 @@ export const Role = () => {
     setMustSpin(true);
   };
   return (
-      <>
-    <Wheel
-        backgroundColors={["#5500FF", "#ffffff"]}
-        textColors={["#ffffff", "#5500FF"]}
-        mustStartSpinning={mustSpin}
-        prizeNumber={prizeNumber}
-        data={data}
-        onStopSpinning={() => {
-          setMustSpin(false);
-        }}
-      />
-          <Button onClick={handleSpinClick}> A </Button>
-
-      </>
+    <div>
+        <Wheel
+            backgroundColors={["#8C4B12", "#054956"]}
+            textColors={["#fff", "#fff"]}
+            outerBorderColor={"#071726"}
+            radiusLineColor={"#071726"}
+            mustStartSpinning={mustSpin}
+            prizeNumber={prizeNumber}
+            data={data}
+            onStopSpinning={() => {
+              setMustSpin(false);
+            }}
+          />
+          <Button onClick={handleSpinClick}> Role </Button>
+      </div>
       
   )
 }
