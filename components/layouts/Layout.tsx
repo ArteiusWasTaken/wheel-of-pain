@@ -5,6 +5,7 @@ import { NavBar } from "../ui/NavBar";
 interface Props {
   title?: string;
 }
+const origin = typeof window === "undefined" ? "" : window.location.origin;
 
 export const Layout: FC<Props> = ({ children, title }) => {
   return (
@@ -22,6 +23,8 @@ export const Layout: FC<Props> = ({ children, title }) => {
           property="og:description"
           content={`Wheel of Pain! random champion, role and playstyle picker for League of legends`}
         />
+        <meta property="og:image" content={`${origin}/img/banner.png`} />
+
         <link rel="shortcut icon" href="/square.ico" />
       </Head>
 

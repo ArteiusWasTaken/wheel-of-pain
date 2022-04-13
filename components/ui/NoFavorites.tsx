@@ -19,10 +19,12 @@ export const SimpleCard: FC<Props> = (content) => {
           justifyContent: "start",
         }}
       >
-        <Card.Image src={content.img} width="100%" height={140} />
+        <Card.Image showSkeleton src={content.img} width="100%" height={140} />
         <Card.Footer>
           <Row justify="space-between">
-            <Text transform="capitalize">{content.text}</Text>
+            <Text h1 transform="capitalize">
+              {content.text}
+            </Text>
           </Row>
         </Card.Footer>
       </Card.Body>

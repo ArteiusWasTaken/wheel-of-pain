@@ -2,7 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ['cdn.communitydragon.org']
+    domains: ['cdn.communitydragon.org', 'wheel-of-pain.vercel.app']
   }
 }
 
