@@ -9898,6 +9898,11 @@ react-refresh@^0.8.3:
   resolved "https://registry.yarnpkg.com/react-refresh/-/react-refresh-0.8.3.tgz#721d4657672d400c5e3c75d063c4a85fb2d5d68f"
   integrity sha512-X8jZHc7nCMjaCqoU+V2I0cOhNW+QMBwSUkeXnTi8IPe6zaRWfn60ZzvFDZqWPfmSJfjub7dDW1SP0jaHWLu/hg==
 
+react-roulette-pro@^2.1.1:
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/react-roulette-pro/-/react-roulette-pro-2.1.1.tgz#34e94e839fea9d50d03ee1b5cddcc6f47fb4eb32"
+  integrity sha512-sEQ/yV5ezmoodinRfGKp12/kc9AacYnJfTw7i/FCbUA8MvCRgnrWGyuYqvW/fJo6J/MgGFmwDPiYisrVZf6MfA==
+
 react-scripts@^4.0.3:
   version "4.0.3"
   resolved "https://registry.yarnpkg.com/react-scripts/-/react-scripts-4.0.3.tgz#b1cafed7c3fa603e7628ba0f187787964cb5d345"

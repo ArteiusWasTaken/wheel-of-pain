@@ -4,6 +4,7 @@ import { FC } from 'react'
 interface Props {
   title?: string;
 }
+
 const origin = (typeof window === 'undefined') ? '' : window.location.origin;
 
 export const Layout: FC<Props> = ({ children, title}) => {
@@ -21,12 +22,7 @@ export const Layout: FC<Props> = ({ children, title}) => {
 
     
     <main style={{
-      padding: '0px 20px',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      flexDirection: 'row',
-      marginTop: '20px'
+      padding: '0px 20px'
     }}>
       { children }
     </main>
