@@ -1,32 +1,44 @@
-import Head from 'next/head'
-import { FC } from 'react'
+import Head from "next/head";
+import { FC } from "react";
+import { NavBar } from "../ui/NavBar";
 
 interface Props {
   title?: string;
 }
 
-const origin = (typeof window === 'undefined') ? '' : window.location.origin;
-
-export const Layout: FC<Props> = ({ children, title}) => {
+export const Layout: FC<Props> = ({ children, title }) => {
   return (
-    <>
-    <Head>
-        <title>{ title || 'Pokemon App'}</title>
+    <div>
+      <Head>
+        <title>{title || "Wheel of Pain!"}</title>
         <meta name="author" content="Alexander Rosas" />
-        <meta name="description" content={`información sobre el pokémon ${ title }`} />
-        <meta name="keywords" content={`${title}, pokemon, pokedex`} />
-        <meta property="og:title" content={`Información sobre ${ title }`} />
-        <meta property="og:description" content={`Esta es la información sobre ${ title }`} />
-        <meta property="og:image" content={`${origin}/img/banner.png`} />
-    </Head>
+        <meta name="description" content={`League of Legends Wheel of Pain!`} />
+        <meta
+          name="keywords"
+          content={`${title}, league, of, legends, wheel of pain,`}
+        />
+        <meta property="og:title" content={`Wheel of Pain!`} />
+        <meta
+          property="og:description"
+          content={`Wheel of Pain! random champion, role and playstyle picker for League of legends`}
+        />
+        <link rel="shortcut icon" href="/square.ico" />
+      </Head>
 
-    
-    <main style={{
-      padding: '0px 20px'
-    }}>
-      { children }
-    </main>
-    </>
-  )
-}
+      <NavBar />
 
+      <main
+        style={{
+          padding: "4rem 0",
+          minHeight: "100vh",
+          flex: "1",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        {children}
+      </main>
+    </div>
+  );
+};

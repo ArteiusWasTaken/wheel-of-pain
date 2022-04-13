@@ -14,6 +14,7 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head>{CssBaseline.flush()}</Head>
+        <link rel="shortcut icon" href="/square.ico" />
         <body>
           <Main />
           <NextScript />

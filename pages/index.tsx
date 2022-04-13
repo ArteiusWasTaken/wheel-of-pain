@@ -1,60 +1,75 @@
-import { NextPage } from 'next'
-import { Layout } from '../components/layouts';
-import { GetStaticProps } from 'next'
-import { championApi } from '../api';
-import { ChampionList, SmallChampion } from '../interfaces';
-import { useState } from 'react';
-import { Button, Image } from '@nextui-org/react';
-
+import { NextPage } from "next";
+import { Layout } from "../components/layouts";
+import { GetStaticProps } from "next";
+import { championApi } from "../api";
+import { ChampionList, SmallChampion } from "../interfaces";
+import { useState } from "react";
+import { Button, Card, Grid, Image, Row, Text } from "@nextui-org/react";
+import { dataRole, dataPLaystyle } from "../components/wheel";
+import { SimpleCard } from "../components/ui";
 interface Props {
   champions: SmallChampion[];
-  
-}
-interface Data {
-  option: string;
 }
 
-const Home: NextPage<Props> = ({champions}) => {
-    
-  const [champ, setChamp] = useState("")
-  const [visible, setVisible] = useState(false)
-
-  const championNames: string[] = champions
-  .map((item) => item.name)
-  .filter((rell) => rell !== "Rell");
+const Home: NextPage<Props> = ({ champions }) => {
+  const [champ, setChamp] = useState("");
+  const [champImg, setChampImg] = useState("");
+  const [role, setRole] = useState("");
+  const [playStyle, setPlayStyle] = useState("");
 
   const handleSpinClick = () => {
-    const newPrizeNumber = championNames[Math.floor(Math.random() * championNames.length)]
-    setChamp(newPrizeNumber)
-    setVisible(true)
-  }
+    const ran = Math.floor(Math.random() * champions.length);
+    const role = dataRole[Math.floor(Math.random() * dataRole.length)];
+    const playstyle =
+      dataPLaystyle[Math.floor(Math.random() * dataPLaystyle.length)];
+    setChamp(champions[ran].name);
+    setChampImg(champions[ran].img);
+    setRole(role.option);
+    setPlayStyle(playstyle.option);
+  };
 
   return (
-    
-    <Layout title="Listado de pokémon">
+    <Layout title="Wheel of Pain!">
+      <Grid.Container
+        style={{
+          display: "flex",
+          width: "50%",
+          flexDirection: "row",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        {champ !== "" ? (
+          <>
+            <SimpleCard img={champImg} text={champ} />
+            <SimpleCard img={champImg} text={role} />
+            <SimpleCard img={champImg} text={playStyle} />
+          </>
+        ) : (
+          <h1>Aqui no hay nada</h1>
+        )}
 
-      <Button onClick={handleSpinClick}> Champion </Button>
-
+        <Button onClick={handleSpinClick}> Champion </Button>
+      </Grid.Container>
     </Layout>
-  )
-}
+  );
+};
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
+  const { data } = await championApi.get<ChampionList>("/champions"); // your fetch function here
 
-  const {data} = await championApi.get<ChampionList>('/champions')  // your fetch function here 
-  
-  const version = data.results[0].version
-  
-  const champions: SmallChampion[] = data.results.map(champion => ({
+  const version = data.results[0].version;
+
+  const champions: SmallChampion[] = data.results.map((champion) => ({
     ...champion,
-    img:`https://cdn.communitydragon.org/${champion.version}/champion/${champion.key}/square.png`
-  }))
-  
+    img: `https://cdn.communitydragon.org/${champion.version}/champion/${champion.key}/square.png`,
+  }));
+
   return {
     props: {
-      champions
-    }
-  }
-}
+      champions,
+    },
+  };
+};
 
-export default Home
+export default Home;
